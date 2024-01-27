@@ -14,5 +14,5 @@ def home_page():
     return "Hello programmer"
 
 bot.delete_webhook()
-print(bot.set_webhook(url))
-print(bot.get_webhook_info())
+bot.set_webhook(url)
+bot.get_webhook_info()
