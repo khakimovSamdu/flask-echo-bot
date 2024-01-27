@@ -2,12 +2,17 @@ from flask import Flask
 import telegram
 import os
 
-bot = os.getenv('TOKEN')
+TOKEN = os.getenv('TOKEN')
 app = Flask(__name__)
+url = "https://allamurod.pythonanywhere.com/"
 
-user = telegram.Bot(bot)
+bot = telegram.Bot(TOKEN)
 chat_id = "1383186462"
-@app.route('/')
+@app.route('/', methods=['POST'])
 def home_page():
-    user.send_message(chat_id = chat_id, text = "Assalomu aleykum")
+    bot.send_message(chat_id = chat_id, text = "Assalomu aleykum")
     return "Hello programmer"
+
+bot.delete_webhook()
+print(bot.set_webhook(url))
+print(bot.get_webhook_info())
