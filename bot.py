@@ -1,18 +1,27 @@
 from flask import Flask
 import telegram
 import os
+from telegram.ext import (
+    Updater, 
+    CommandHandler,
+    MessageHandler,
+    Filters,
+)
+from handlers import flask_echo
 
-TOKEN = os.getenv('TOKEN')
 app = Flask(__name__)
 url = "https://allamurod.pythonanywhere.com/"
+TOKEN = os.getenv('TOKEN')
+
 
 bot = telegram.Bot(TOKEN)
-chat_id = "1383186462"
 @app.route('/', methods=['POST'])
 def home_page():
-    bot.send_message(chat_id = chat_id, text = "Assalomu aleykum")
+    updater = Updater(TOKEN)
+    dispatcher = updater.dispatcher
+    dispatcher.add_handler(handler=MessageHandler(filters=Filters.text, callback=flask_echo))
     return "Hello programmer"
 
-bot.delete_webhook()
-bot.set_webhook(url)
-bot.get_webhook_info()
+print(bot.delete_webhook())
+print(bot.set_webhook(url))
+print(bot.get_webhook_info())
