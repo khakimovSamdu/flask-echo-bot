@@ -1,27 +1,31 @@
 from flask import Flask
-import telegram
+from telegram import Update, Bot, ReplyKeyboardMarkup,KeyboardButton
 import os
-from telegram.ext import (
-    Updater, 
-    CommandHandler,
-    MessageHandler,
-    Filters,
-)
-from handlers import flask_echo
 
 app = Flask(__name__)
 url = "https://allamurod.pythonanywhere.com/"
 TOKEN = os.getenv('TOKEN')
 
-
-bot = telegram.Bot(TOKEN)
+bot = Bot(TOKEN)
 @app.route('/', methods=['POST'])
 def home_page():
-    updater = Updater(TOKEN)
-    dispatcher = updater.dispatcher
-    dispatcher.add_handler(handler=MessageHandler(filters=Filters.text, callback=flask_echo))
+
+    text = "Siz bu bot orqali pul yutib olishingiz mumkin, pul miqdorini belgilang va shoshiling. Yutuqni olish uchun biz bilan bog'laning."
+    bot.send_message(
+        chat_id = "1383186462", text = text,
+        reply_markup = ReplyKeyboardMarkup(
+            keyboard=[
+                [KeyboardButton(text='1500 💰'),KeyboardButton(text='1000 💰')],
+                [KeyboardButton(text='2500 💰'),KeyboardButton(text='3000 💰')]
+            ],
+            resize_keyboard=True,
+        )
+    )
     return "Hello programmer"
 
-print(bot.delete_webhook())
-print(bot.set_webhook(url))
-print(bot.get_webhook_info())
+bot.delete_webhook()
+bot.set_webhook(url)
+bot.get_webhook_info()
+
+if __name__=="__main__":
+    app.run(debug=True)
