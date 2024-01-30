@@ -16,7 +16,7 @@ def home_page():
     statust = bot.get_webhook_info()
     bot.send_message(
         chat_id = "1383186462", text = params.get('text', str(statust)))
-    
+
     return "Hello programmer"
 if __name__=="__main__":
     app.run(debug=True)   
