@@ -1,0 +1,9 @@
+{"update_id": 464769589, 
+"message": {"message_id": 308, "from": {
+    "id": 1383186462, "is_bot": "False", "first_name": "allamurod", "username": "allamurod_2806", "language_code": "en"}, 
+    "chat": {"id": 1383186462, "first_name": "allamurod", "username": "allamurod_2806", "type": "private"}, "date": 1706688819, 
+    "sticker": {"width": 512, "height": 512, "emoji": "🙄", "set_name": "Thecoveruz", "is_animated": "False", "is_video": "False", "type": "regular", 
+    "thumbnail": {"file_id": "AAMCAgADGQEAAgE0ZboBM9lUjB7juMeVZJEl9KYU6hIAAgIAAz3BfRrzYdZO_fj1vQEAB20AAzQE", "file_unique_id": "AQADAgADPcF9GnI", "file_size": 4342, "width": 128, "height": 128}, 
+    "thumb": {"file_id": "AAMCAgADGQEAAgE0ZboBM9lUjB7juMeVZJEl9KYU6hIAAgIAAz3BfRrzYdZO_fj1vQEAB20AAzQE", "file_unique_id": "AQADAgADPcF9GnI", "file_size": 4342, "width": 128, "height": 128}, "file_id": "CAACAgIAAxkBAAIBNGW6ATPZVIwe47jHlWSRJfSmFOoSAAICAAM9wX0a82HWTv349b00BA", "file_unique_id": "AgADAgADPcF9Gg", "file_size": 18996}
+    }
+}

@@ -24,16 +24,23 @@ def home_page():
     elif data['message'].get('document')!=None:
         bot.send_document(chat_id = user['id'], document = data['message']['document']['file_id'], caption="Documitatsiya",protect_content=True)
     elif data['message'].get('dice')!=None:
-        bot.send_dice(chat_id = data['message']['dice']['emoji'], disable_notification = True)
+        bot.send_dice(chat_id = user['id'], emoji = data['message']['dice']['emoji'], disable_notification = True)
     elif data['message'].get('animation')!=None:
         bot.send_animation(chat_id = user['id'], animation = data['message']['animation'], duration = 10)
     elif data['message'].get('poll')!=None:
         bot.send_poll(chat_id = user['id'], question = data['message']['poll']['question'], options = data['message']['poll']['options'])
+    elif data['message'].get('video')!=None:
+        bot.send_video(chat_id = user['id'], video = data['message']['video'][0]['file_id'])
+    elif data['message'].get('sticker')!=None:
+        s = data['message']['sticker']
+        bot.send_sticker(chat_id = user['id'], file_id = str(s['file_id']), file_unique_id = s['file_unique_id'], width = s['width'], height = s['height'], is_animated = s['is_animated'], is_video = s['is_video'])
+    elif data['message'].get('voice')!=None:
+        bot.send_voice(chat_id = user['id'], voice = data['message']['voice']['file_id'])
     else:
-        bot.send_message(chat_id = user['id'], text = "Bu so'rovga hali javob topmadik !")
+        bot.send_message(chat_id = user['id'], text = f"{data}")
     return "Hello programmer"
 
-bot.delete_webhook()
+
 if __name__=="__main__":
     app.run(debug=True)   
  
