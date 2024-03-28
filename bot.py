@@ -5,7 +5,6 @@ app = Flask(__name__)
 url = "https://allamurod.pythonanywhere.com/"
 TOKEN = os.getenv('TOKEN')
 bot = Bot(TOKEN)
-
 @app.route('/', methods=['POST'])
 def home_page():
     params  = request.args
